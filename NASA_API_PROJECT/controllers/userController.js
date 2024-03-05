@@ -10,60 +10,60 @@ export const getApods = async (req, res) => {
   }
 };
 
-// export const getApod = async (req, res) => {
-//   try {
-//     const { id } = req.params;
-//     const apod = await APOD.findById(id);
+export const getApod = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const apod = await APOD.findById(id);
 
-//     if (character) {
-//       return res.json(character);
-//     }
+    if (apod) {
+      return res.json(apod);
+    }
 
-//     res.status(404).json({ message: "Character not found!" });
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ error: error.message });
-//   }
-// };
+    res.status(404).json({ message: "Character not found!" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: error.message });
+  }
+};
 
-// export const createCharacter = async (req, res) => {
-//   try {
-//     const character = new Character(req.body);
-//     await character.save();
+export const createApod = async (req, res) => {
+  try {
+    const apod = new APOD(req.body);
+    await apod.save();
 
-//     res.status(201).json(character);
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ error: error.message });
-//   }
-// };
+    res.status(201).json(apod);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: error.message });
+  }
+};
 
-// export const updateCharacter = async (req, res) => {
-//   try {
-//     const { id } = req.params
+export const updateApod = async (req, res) => {
+  try {
+    const { id } = req.params
 
-//     const character = await Character.findByIdAndUpdate(id, req.body)
+    const apod = await APOD.findByIdAndUpdate(id, req.body)
 
-//     res.status(201).json(character)
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ error: error.message });
-//   }
-// }
+    res.status(201).json(apod)
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: error.message });
+  }
+}
 
-// export const deleteCharacter = async (req, res) => {
-//   try {
-//     const { id } = req.params
+export const deleteApod = async (req, res) => {
+  try {
+    const { id } = req.params
 
-//     const deleted = await Character.findByIdAndDelete(id)
+    const deleted = await APOD.findByIdAndDelete(id)
 
-//     if (deleted) {
-//       return res.status(200).send("Character Deleted")
-//     }
+    if (deleted) {
+      return res.status(200).send("Character Deleted")
+    }
 
-//     throw new Error("Character not found.")
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ error: error.message });
-//   }
-// }
+    throw new Error("Character not found.")
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: error.message });
+  }
+}
