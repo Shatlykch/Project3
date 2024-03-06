@@ -1,12 +1,10 @@
 import { Router } from "express";
 
-import UserRoute from "./user_route.js"
+import userRoute from "./user_route.js"
 
 const router = Router();
 
 router.get("/", (req, res) => res.send("This is the api root!"));
-
-
-router.use("/apods", apodsRoutes)
+router.use("/apods", userRoute)
 
 export default router;

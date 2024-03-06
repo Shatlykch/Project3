@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 import connection from '../db/connection.js';
-import data from "../apod.json" assert { type: 'json' }
+import data from "../seed/apod.json" assert { type: 'json' }
 import Apod from '../models/APOD.js';
 
 
