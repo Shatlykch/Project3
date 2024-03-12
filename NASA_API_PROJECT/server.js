@@ -7,7 +7,7 @@ import logger from "morgan";
 
 
 const app = express();
-const Port = 3001;
+const Port = process.env.PORT || 3001;
 
 app.use(express.json());
 app.use(cors());
